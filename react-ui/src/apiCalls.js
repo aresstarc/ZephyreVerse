@@ -6,7 +6,7 @@ export const loginCall = async(userCredentials, dispatch) => {
         const res = await axios.post("https://zephyreverse-server.onrender.com/api/auth/login", userCredentials)
         dispatch({type: "LOGIN_SUCCESS", payload: res.data})
     }catch(err){
-        dispatch({type: "LOGIN_FAILURE" , payload: err})
+        dispatch({type: "LOGIN_FAILURE" , payload: err.response?.data || "Login failed"})
     }
 }
 

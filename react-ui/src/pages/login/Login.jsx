@@ -20,7 +20,7 @@ const handleSubmit = (e)=>{
     e.preventDefault()
     loginCall({email: email.current.value , password: password.current.value},dispatch)
   }
-  console.log(user)
+  // console.log(user)
 
   return (
     <div className="login-container">
@@ -44,10 +44,11 @@ const handleSubmit = (e)=>{
         <button type="submit" className="login-button" disabled={isFetching}>
             {isFetching ?<CircularProgress color="inherit" size="15px"/>:"Log In"}
         </button>
+        {error && <span className="error-message">Login failed. Please try again.</span>}
         <p className="forgot-password">Forgot password?</p>
       </form>
       <div className="create-account">
-        <button className="create-account-button" onClick={handleClick}>
+        <button className="create-account-button" onClick={handleClick} disabled={isFetching}>
         {isFetching ?<CircularProgress color="inherit" size="15px"/>:"Create New Account"}</button>
       </div>
     </div>
