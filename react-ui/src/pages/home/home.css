@@ -1,0 +1,8 @@
+/* *{
+    background-color: #f0f8ff;
+} */
+
+.homeContainer{
+    display: flex;
+    width: 100%;
+}
