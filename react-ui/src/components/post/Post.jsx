@@ -21,7 +21,7 @@ useEffect(()=>{
 
 useEffect(()=>{
     const fetchUser = async () =>{
-    const res = await axios.get(`http://localhost:3000/api/user?userId=${post.userId}`)
+    const res = await axios.get(`https://zephyreverse-server.onrender.com/api/user?userId=${post.userId}`)
     setUser(res.data) 
 }
 fetchUser()
@@ -29,7 +29,7 @@ fetchUser()
 
 const likeHandler = async () =>{
     try{
-        await axios.put(`http://localhost:3000/api/post/${post._id}/like`,{userId: currentUser._id})
+        await axios.put(`https://zephyreverse-server.onrender.com/api/post/${post._id}/like`,{userId: currentUser._id})
     }catch(err){
 
     }

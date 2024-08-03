@@ -23,7 +23,7 @@ function Rightbar({user}) {
     const checkFollowStatus = async () => {
       if (user?._id && currentUser?._id) {
         try {
-          const response = await axios.get(`http://localhost:3000/api/user/followings/${currentUser._id}`);
+          const response = await axios.get(`https://zephyreverse-server.onrender.com/api/user/followings/${currentUser._id}`);
           const userFollowingIds = response.data.map(following => following._id);
           setIsFollowed(userFollowingIds.includes(user._id));
         } catch (err) {
@@ -38,7 +38,7 @@ function Rightbar({user}) {
   useEffect(()=>{
     const getFollowings = async()=>{
       try{
-        const followingList = await axios.get("http://localhost:3000/api/user/followings/"+user._id)
+        const followingList = await axios.get("https://zephyreverse-server.onrender.com/api/user/followings/"+user._id)
         setFollowings(followingList.data)
       }catch(err){
         console.log(err)
@@ -50,11 +50,11 @@ function Rightbar({user}) {
   const handleClick = async()=>{
     try{
       if(isFollowed){
-        await axios.put("http://localhost:3000/api/user/"+user._id+"/unfollow",{
+        await axios.put("https://zephyreverse-server.onrender.com/api/user/"+user._id+"/unfollow",{
           userId: currentUser._id})
           dispatch({type: "UNFOLLOW", payload:user._id})
       }else{
-        await axios.put("http://localhost:3000/api/user/"+user._id+"/follow",{
+        await axios.put("https://zephyreverse-server.onrender.com/api/user/"+user._id+"/follow",{
           userId: currentUser._id})
           dispatch({type: "FOLLOW", payload:user._id})
       }

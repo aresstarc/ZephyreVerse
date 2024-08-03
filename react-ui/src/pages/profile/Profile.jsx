@@ -15,7 +15,7 @@ function Profile() {
 
   useEffect(()=>{
     const fetchUser = async () =>{
-    const res = await axios.get(`http://localhost:3000/api/user?username=${params.username}`)
+    const res = await axios.get(`https://zephyreverse-server.onrender.com/api/user?username=${params.username}`)
     setUser(res.data) 
 }
 fetchUser()

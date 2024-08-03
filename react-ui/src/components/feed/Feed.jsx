@@ -5,7 +5,7 @@ import Post from "../post/Post"
 import "./feed.css"
 import { AuthContext } from "../../context/AuthContext"
 
-// "proxy": "http://localhost:3000/api"
+// "proxy": "https://zephyreverse-server.onrender.com/api"
 
 function Feed({username}) {
   const [posts, setPosts] = useState([])
@@ -14,8 +14,8 @@ function Feed({username}) {
   useEffect(()=>{
     const fetchPosts = async () =>{
       const res = username
-       ? await axios.get("http://localhost:3000/api/post/profile/"+username)  
-       : await axios.get("http://localhost:3000/api/post/timeline/"+user._id)
+       ? await axios.get("https://zephyreverse-server.onrender.com/api/post/profile/"+username)  
+       : await axios.get("https://zephyreverse-server.onrender.com/api/post/timeline/"+user._id)
       setPosts(res.data.sort((p1,p2)=>{
         return new Date(p2.createdAt) - new Date(p1.createdAt)
       })) 

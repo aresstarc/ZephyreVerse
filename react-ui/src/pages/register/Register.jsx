@@ -29,7 +29,7 @@ const Register = () => {
         password: password.current.value
       }
       try{
-        await axios.post("http://localhost:3000/api/auth/register", user)
+        await axios.post("https://zephyreverse-server.onrender.com/api/auth/register", user)
         navigate("/login")
       } catch(err){
         console.log(err)

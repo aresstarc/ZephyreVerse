@@ -22,7 +22,7 @@ function Share() {
         const data = new FormData()
         // data.append('file', file)
         // try{
-        //     await axios.post("http://localhost:3000/api/upload",data)
+        //     await axios.post("https://zephyreverse-server.onrender.com/api/upload",data)
         // }catch(err){
         //     console.log(err)
         // }
@@ -34,7 +34,7 @@ function Share() {
         data.append('desc', desc.current.value); 
         // try{
            
-        //     await axios.post("http://localhost:3000/api/post",data)
+        //     await axios.post("https://zephyreverse-server.onrender.com/api/post",data)
         // }catch(err){}
 
 
@@ -42,7 +42,7 @@ function Share() {
             // Upload the file
             let fileUrl = "";
             if (file) {
-                const uploadResponse = await axios.post("http://localhost:3000/api/upload", data, {
+                const uploadResponse = await axios.post("https://zephyreverse-server.onrender.com/api/upload", data, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -51,7 +51,7 @@ function Share() {
             }
 
             // Create a new post
-            await axios.post("http://localhost:3000/api/post", {
+            await axios.post("https://zephyreverse-server.onrender.com/api/post", {
                 userId: user._id,
                 desc: desc.current.value,
                 img: fileUrl
