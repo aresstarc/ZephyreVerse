@@ -71,6 +71,11 @@ app.use("/api/user" , userRoute)
 app.use("/api/auth" , authRoute)
 app.use("/api/post", postRoute)
 
+
+app.get("/",(req,res)=>{
+  res.send("Server is running!")
+})
+
 app.listen(3000, ()=>{
   console.log("Connected to port 3000")
 })
