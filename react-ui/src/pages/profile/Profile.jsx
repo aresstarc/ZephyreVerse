@@ -6,6 +6,7 @@ import Rightbar from "../../components/rightbar/Rightbar"
 import Feed from "../../components/feed/Feed"
 import "./profile.css"
 import {useParams} from "react-router"
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Profile() {
   const PF=process.env.REACT_APP_PUBLIC_FOLDER
@@ -15,7 +16,7 @@ function Profile() {
 
   useEffect(()=>{
     const fetchUser = async () =>{
-    const res = await axios.get(`https://zephyreverse-server.onrender.com/api/user?username=${params.username}`)
+    const res = await axios.get(`${apiUrl}/api/user?username=${params.username}`)
     setUser(res.data) 
 }
 fetchUser()

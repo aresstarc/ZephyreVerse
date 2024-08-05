@@ -6,6 +6,7 @@ import { format} from 'timeago.js';
 import  {Link} from "react-router-dom"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Post({post}) {
 
@@ -21,7 +22,7 @@ useEffect(()=>{
 
 useEffect(()=>{
     const fetchUser = async () =>{
-    const res = await axios.get(`https://zephyreverse-server.onrender.com/api/user?userId=${post.userId}`)
+    const res = await axios.get(`${apiUrl}/api/user?userId=${post.userId}`)
     setUser(res.data) 
 }
 fetchUser()
@@ -29,7 +30,7 @@ fetchUser()
 
 const likeHandler = async () =>{
     try{
-        await axios.put(`https://zephyreverse-server.onrender.com/api/post/${post._id}/like`,{userId: currentUser._id})
+        await axios.put(`${apiUrl}/api/post/${post._id}/like`,{userId: currentUser._id})
     }catch(err){
 
     }

@@ -4,6 +4,7 @@ import { Cancel,PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-materia
 import {AuthContext} from "../../context/AuthContext"
 import axios from "axios"
 import { Link } from "react-router-dom"
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Share() {
     
@@ -14,35 +15,19 @@ function Share() {
 
     const submitHandler = async (e)=>{
         e.preventDefault()
-        // const newPost = {
-        //     userId: user._id,
-        //     desc: desc.current.value
-        // }
-    
         const data = new FormData()
-        // data.append('file', file)
-        // try{
-        //     await axios.post("https://zephyreverse-server.onrender.com/api/upload",data)
-        // }catch(err){
-        //     console.log(err)
-        // }
-
+        
         if (file) {
             data.append('file', file);
         }
         data.append('userId', user._id);
         data.append('desc', desc.current.value); 
-        // try{
-           
-        //     await axios.post("https://zephyreverse-server.onrender.com/api/post",data)
-        // }catch(err){}
-
 
         try {
             // Upload the file
             let fileUrl = "";
             if (file) {
-                const uploadResponse = await axios.post("https://zephyreverse-server.onrender.com/api/upload", data, {
+                const uploadResponse = await axios.post(`${apiUrl}/api/upload`, data, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -51,7 +36,7 @@ function Share() {
             }
 
             // Create a new post
-            await axios.post("https://zephyreverse-server.onrender.com/api/post", {
+            await axios.post(`${apiUrl}/api/post`, {
                 userId: user._id,
                 desc: desc.current.value,
                 img: fileUrl

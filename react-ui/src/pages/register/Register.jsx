@@ -3,6 +3,7 @@ import './register.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Register = () => {
   
@@ -29,7 +30,7 @@ const Register = () => {
         password: password.current.value
       }
       try{
-        await axios.post("https://zephyreverse-server.onrender.com/api/auth/register", user)
+        await axios.post(`${apiUrl}/api/auth/register`, user)
         navigate("/login")
       } catch(err){
         console.log(err)
