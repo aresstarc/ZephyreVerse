@@ -4,12 +4,13 @@ import Share from "../share/Share"
 import Post from "../post/Post"
 import "./feed.css"
 import { AuthContext } from "../../context/AuthContext"
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 
 
 function Feed({username}) {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  
   const [posts, setPosts] = useState([])
   const {user} = useContext(AuthContext)
 
