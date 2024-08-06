@@ -8,7 +8,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 
 function Rightbar({user}) {
-  const PF=process.env.REACT_APP_PUBLIC_FOLDER
+  // const PF=process.env.REACT_APP_PUBLIC_FOLDER
   const [followings, setFollowings] = useState([])
   const {user:currentUser,dispatch} = useContext(AuthContext)
   const [isFollowed, setIsFollowed] = useState(false)
