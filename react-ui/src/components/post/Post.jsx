@@ -44,7 +44,7 @@ const likeHandler = async () =>{
             <div className="postTop">
                 <div className="postTopLeft">
                     <Link to={`/profile/${user.username}`}>
-                    <   img className="postProfileImg" src={user.profilePicture ? user.profilePicture : PF+"/user.png"} alt="" />
+                    <   img className="postProfileImg" src={user.profilePicture ? user.profilePicture :"/assets/user.png"} alt="" />
                     </Link>
                     <span className="postUsername">{user.username}</span>
                     <span className="postDate">{format(post.createdAt)}</span>

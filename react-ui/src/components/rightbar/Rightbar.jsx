@@ -154,7 +154,7 @@ function Rightbar({user}) {
             <img className="rightbarFollowingImg" 
               src={following.profilePicture
               ?following.profilePicture
-              :`/user.png`} alt="" />
+              :`/assets/user.png`} alt="" />
             <span className="rightbarFollowingName">{following.username}</span>
           </div>
         </Link>

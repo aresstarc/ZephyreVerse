@@ -9,7 +9,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 function Share() {
     
     const {user} = useContext(AuthContext)
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER
+    // const PF = process.env.REACT_APP_PUBLIC_FOLDER
     const desc = useRef()
     const [file,setFile] = useState(null)
 
@@ -60,7 +60,7 @@ function Share() {
                     className="shareProfileImg" 
                     src={user.profilePicture 
                     ? user.profilePicture 
-                    : PF+"/user.png"} alt="" />
+                    : "/assets/user.png"} alt="" />
             </Link>       
                 <input 
                 className="shareInput" 

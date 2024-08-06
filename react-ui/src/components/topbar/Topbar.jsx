@@ -8,7 +8,7 @@ import {logoutCall} from '../../apiCalls'
 export default function Topbar({paramUser}) {
   
   const {user, dispatch} = useContext(AuthContext)
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER
+  // const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
   const handleClick = () => {
     logoutCall(
@@ -52,7 +52,7 @@ export default function Topbar({paramUser}) {
           <img src={
             user.profilePicture 
             ? user.profilePicture 
-            : PF+"/user.png"
+            : "/assets/user.png"
           } alt="" className="topbarImg" />
         </Link>
         {!paramUser&&<span className="topbarLink" onClick={handleClick}>Sign out</span>}
